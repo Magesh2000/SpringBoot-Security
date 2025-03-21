@@ -23,59 +23,41 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 public class SecurityConfig {
 	@Autowired
 	private JwtFilter jwtFilter;
-	
+
 	@Bean
-	public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-		http.authorizeHttpRequests(authz -> 
-			authz
-			.requestMatchers(HttpMethod.POST, "/api/user/create").permitAll()
-			.requestMatchers("/api/user/**").authenticated()
-			.anyRequest().permitAll()
-		)
-		
-//		.formLogin(form -> form.permitAll().defaultSuccessUrl("/dashboard")) 
-		.csrf( csrf -> csrf.disable())
-		.sessionManagement( sess -> sess.sessionCreationPolicy(SessionCreationPolicy.STATELESS) )
-		.addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class)
-		;
-		
+	SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+		http.authorizeHttpRequests(authz -> authz.requestMatchers(HttpMethod.POST, "/api/user/create").permitAll()
+				.requestMatchers("/api/user/**").authenticated().anyRequest().permitAll())
+				.csrf(csrf -> csrf.disable())
+				.sessionManagement(sess -> sess.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
+				.addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class);
+
 		return http.build();
-		
+
 	}
-	
+
 	@Bean
-	public UserDetailsService userDetailService() {
-//		UserDetails user = User.withUsername("alice")
-//				.password(passwordEncoder.encode("user123"))
-//				.roles("USER")
-//				.build();
-//		
-//		UserDetails admin = User.withUsername("zack")
-//				.password(passwordEncoder.encode("admin123"))
-//				.roles("ADMIN")
-//				.build();
-//		
-//		return new InMemoryUserDetailsManager(user, admin);
-		
+	UserDetailsService userDetailService() {
+
 		return new CustomUserDetailsService();
 	}
-	
+
 	@Bean
-	public DaoAuthenticationProvider authenticationProvider() {
+	DaoAuthenticationProvider authenticationProvider() {
 		DaoAuthenticationProvider authProvider = new DaoAuthenticationProvider();
 		authProvider.setUserDetailsService(userDetailService());
 		authProvider.setPasswordEncoder(passwordEncoder());
 		return authProvider;
 	}
-	
+
 	@Bean
-	public PasswordEncoder passwordEncoder() {
+	PasswordEncoder passwordEncoder() {
 		return new BCryptPasswordEncoder();
 	}
-	
+
 	@Bean
-	public AuthenticationManager authenticationManager() {
+	AuthenticationManager authenticationManager() {
 		return new ProviderManager(List.of(authenticationProvider()));
 	}
-	
+
 }
