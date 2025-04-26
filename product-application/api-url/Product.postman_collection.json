@@ -1,0 +1,135 @@
+{
+	"info": {
+		"_postman_id": "a3a3ed15-c6cb-41dd-b882-18823ddb840f",
+		"name": "Product",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "40477839"
+	},
+	"item": [
+		{
+			"name": "http://localhost:8900/api/product/auth/login",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"userName\":\"Kikii\",\r\n    \"password\":\"kiki@2000\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8900/api/product/auth/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8900",
+					"path": [
+						"api",
+						"product",
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8900/api/product/user/list",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJLaWtpaSIsImlhdCI6MTc0NTY4NjEwNSwiZXhwIjoxNzQ1Njg5NzA1fQ.KKIiN-Q1y5AU06_xnai37vt3ctIDYctjIH5NG0_pe2c",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"userId\": 3\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8900/api/product/user/list",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8900",
+					"path": [
+						"api",
+						"product",
+						"user",
+						"list"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8900/api/product/excel/import",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJLaWtpaSIsImlhdCI6MTc0NTY4NjEwNSwiZXhwIjoxNzQ1Njg5NzA1fQ.KKIiN-Q1y5AU06_xnai37vt3ctIDYctjIH5NG0_pe2c",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "excelFile",
+							"type": "file",
+							"src": "postman-cloud:///1f022bec-8f47-4540-b41b-3cf4d3af1f90"
+						},
+						{
+							"key": "tableName",
+							"value": "product",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8900/api/product/excel/import",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8900",
+					"path": [
+						"api",
+						"product",
+						"excel",
+						"import"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
