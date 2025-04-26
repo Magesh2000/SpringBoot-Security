@@ -1,6 +1,6 @@
-package com.example.application.Expection;
+package com.product.application.Expection;
 
-public class ApplicationExpection extends Exception {
+public class ApplicationExpection extends RuntimeException {
 
 	/**
 	 * 

@@ -1,4 +1,4 @@
-package com.example.application.controller;
+package com.product.application.controller;
 
 public class ExcelImport {
 

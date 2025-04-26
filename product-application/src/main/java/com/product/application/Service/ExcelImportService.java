@@ -1,4 +1,4 @@
-package com.example.application.Service;
+package com.product.application.Service;
 
 public interface ExcelImportService {
 

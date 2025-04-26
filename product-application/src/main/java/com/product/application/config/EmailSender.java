@@ -1,4 +1,4 @@
-package com.example.application.config;
+package com.product.application.config;
 
 import jakarta.mail.*;
 import jakarta.mail.internet.*;
@@ -7,7 +7,7 @@ import java.util.Properties;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
-import com.example.application.dto.UsersDTO;
+import com.product.application.dto.UsersDTO;
 
 @Component
 public class EmailSender {

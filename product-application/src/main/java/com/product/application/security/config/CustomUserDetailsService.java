@@ -1,4 +1,4 @@
-package com.example.application.security.config;
+package com.product.application.security.config;
 
 import java.util.Collections;
 
@@ -10,8 +10,8 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Component;
 
-import com.example.application.entity.UserEntity;
-import com.example.application.repo.UsersRepository;
+import com.product.application.entity.UserEntity;
+import com.product.application.repo.UsersRepository;
 
 @Component
 public class CustomUserDetailsService implements UserDetailsService {

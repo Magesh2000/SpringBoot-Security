@@ -1,4 +1,4 @@
-package com.example.application.dto;
+package com.product.application.dto;
 
 public class ExcelImportDTO {
 

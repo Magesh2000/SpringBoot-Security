@@ -1,4 +1,4 @@
-package com.example.application.dao;
+package com.product.application.dao;
 
 import java.util.List;
 
@@ -6,10 +6,11 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import com.example.application.config.EmailSender;
-import com.example.application.dto.UsersDTO;
-import com.example.application.entity.UserEntity;
-import com.example.application.repo.UsersRepository;
+import com.product.application.Expection.ApplicationExpection;
+import com.product.application.config.EmailSender;
+import com.product.application.dto.UsersDTO;
+import com.product.application.entity.UserEntity;
+import com.product.application.repo.UsersRepository;
 
 @Component
 public class UsersDAO {
@@ -47,9 +48,9 @@ public class UsersDAO {
 		return list;
 	}
 
-	public UserEntity findById(Long userId) {
+	public UserEntity findById(Long userId) throws ApplicationExpection {
 		// TODO Auto-generated method stub
-		return repo.findById(userId).orElse(null);
+		return repo.findById(userId).orElseThrow(() -> new ApplicationExpection("User not found"));
 	}
 
 }

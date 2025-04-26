@@ -1,4 +1,4 @@
-package com.example.application.Expection;
+package com.product.application.Expection;
 
 import jakarta.validation.ConstraintViolationException;
 import org.springframework.http.HttpStatus;

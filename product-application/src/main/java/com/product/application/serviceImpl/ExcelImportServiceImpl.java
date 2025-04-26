@@ -1,4 +1,4 @@
-package com.example.application.serviceImpl;
+package com.product.application.serviceImpl;
 
 public class ExcelImportServiceImpl {
 

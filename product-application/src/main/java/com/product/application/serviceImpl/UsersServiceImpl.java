@@ -1,4 +1,4 @@
-package com.example.application.serviceImpl;
+package com.product.application.serviceImpl;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,11 +9,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import com.example.application.Service.UserService;
-import com.example.application.dao.UsersDAO;
-import com.example.application.dto.UsersDTO;
-import com.example.application.entity.AddressEntity;
-import com.example.application.entity.UserEntity;
+import com.product.application.Expection.ApplicationExpection;
+import com.product.application.Service.UserService;
+import com.product.application.dao.UsersDAO;
+import com.product.application.dto.UsersDTO;
+import com.product.application.entity.AddressEntity;
+import com.product.application.entity.UserEntity;
 
 import jakarta.validation.ConstraintViolation;
 import jakarta.validation.ConstraintViolationException;
@@ -57,7 +58,7 @@ public class UsersServiceImpl implements UserService {
 	}
 
 	@Override
-	public List<UserEntity> getUserList(UsersDTO users) {
+	public List<UserEntity> getUserList(UsersDTO users) throws ApplicationExpection {
 		List<UserEntity> userList = new ArrayList<>();
 		if (users.getUserId() == null) {
 			userList = usersDAO.getUserList();

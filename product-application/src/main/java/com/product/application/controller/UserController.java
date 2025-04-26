@@ -1,4 +1,4 @@
-package com.example.application.controller;
+package com.product.application.controller;
 
 import java.util.List;
 
@@ -10,17 +10,17 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.application.Expection.ApplicationExpection;
-import com.example.application.Service.UserService;
-import com.example.application.dto.JsonObject;
-import com.example.application.dto.UsersDTO;
-import com.example.application.entity.UserEntity;
+import com.product.application.Expection.ApplicationExpection;
+import com.product.application.Service.UserService;
+import com.product.application.dto.JsonObject;
+import com.product.application.dto.UsersDTO;
+import com.product.application.entity.UserEntity;
 
 import jakarta.validation.Valid;
 
 
 @RestController
-@RequestMapping("/api/user")
+@RequestMapping("/user")
 public class UserController {
 
 	//@Autowired

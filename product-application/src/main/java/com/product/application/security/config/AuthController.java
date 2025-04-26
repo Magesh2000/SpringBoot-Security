@@ -1,4 +1,4 @@
-package com.example.application.security.config;
+package com.product.application.security.config;
 
 import java.util.Map;
 
@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.application.entity.UserEntity;
+import com.product.application.entity.UserEntity;
 
 @RestController
 @RequestMapping("/auth")

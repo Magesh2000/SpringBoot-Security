@@ -1,4 +1,4 @@
-package com.example.application.security.config;
+package com.product.application.security.config;
 
 import java.io.IOException;
 import java.util.HashMap;

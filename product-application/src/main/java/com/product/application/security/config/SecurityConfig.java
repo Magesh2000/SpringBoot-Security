@@ -1,4 +1,4 @@
-package com.example.application.security.config;
+package com.product.application.security.config;
 
 import java.util.List;
 
@@ -26,7 +26,7 @@ public class SecurityConfig {
 
 	@Bean
 	SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-		http.authorizeHttpRequests(authz -> authz.requestMatchers(HttpMethod.POST, "/api/user/create").permitAll()
+		http.authorizeHttpRequests(authz -> authz.requestMatchers(HttpMethod.GET, "/api/product/api/user/**").permitAll()
 				.requestMatchers("/api/user/**").authenticated().anyRequest().permitAll())
 				.csrf(csrf -> csrf.disable())
 				.sessionManagement(sess -> sess.sessionCreationPolicy(SessionCreationPolicy.STATELESS))

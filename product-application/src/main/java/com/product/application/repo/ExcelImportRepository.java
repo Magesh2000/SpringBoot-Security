@@ -1,4 +1,4 @@
-package com.example.application.repo;
+package com.product.application.repo;
 
 public interface ExcelImportRepository {
 
